@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<OX>
+    <OXMENU id="NAVIGATION_ESHOPADMIN">
+        <MAINMENU id="mxorders">
+            <SUBMENU id="mxdisplayorders" cl="admin_order" list="order_list">
+                <TAB id="PI_RATEPAY_RATEPAY" cl="pi_ratepay_Details" />
+            </SUBMENU>
+        </MAINMENU>
+        <MAINMENU id="PI_RATEPAY_RATEPAY">
+            <SUBMENU id="PI_RATEPAY_RECHNUNG_SETTINGS" cl="pi_ratepay_rechnung_Settings"></SUBMENU>
+            <SUBMENU id="PI_RATEPAY_RATE_SETTINGS" cl="pi_ratepay_rate_Settings"></SUBMENU>
+            <SUBMENU id="PI_RATEPAY_ELV_SETTINGS" cl="pi_ratepay_elv_Settings"></SUBMENU>
+            <SUBMENU id="PI_RATEPAY_ADMIN_MENU_CONFIGURATION" cl="pi_ratepay_Configuration"></SUBMENU>
+            <SUBMENU id="PI_RATEPAY_LOGGING" cl="pi_ratepay_Log"></SUBMENU>
+        </MAINMENU>
+    </OXMENU>
+</OX>

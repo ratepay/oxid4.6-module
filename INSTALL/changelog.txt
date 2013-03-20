@@ -1,0 +1,115 @@
+***********************************************************
+**********| Version 2.5.0.2 - Released 2012-11-06 |********
+***********************************************************
+- minor fix in encryption library: Upgrade if you encounter problems with ELV.
+
+***********************************************************
+**********| Version 2.5.0.1 - Released 2012-10-22 |********
+***********************************************************
+- Modified encryption library to fix utf-8 encoding problems while saving bank-
+  data. 
+  IMPORTANT: Old bank data table must be backuped and cleared before usage.
+             DOES NOT WORK WITH OLD DATA.
+
+***********************************************************
+**********| Version 2.5.0 - Released 2012-03-27 |**********
+***********************************************************
+- added new payment method RatePAY Lastschrift
+- added ELV for RatePAY Rate
+- added PayIntelligent Encryption Library v1.0.0
+- added additional features
+
+- improvement shortened checkout, policy page removed
+
+- fixed [RPOX-46] - module not compatible with non-UTF8 OXID shops
+- fixed [RPOX-41] - wrong order-id in backend requests
+
+- updated RatePAY Ratenrechner to v1.0.3
+
+***********************************************************
+**********| Version 2.0.1 - Released 2012-03-27 |**********
+***********************************************************
+
+- added new logo for RatePAY Installment invoice pdf
+
+***********************************************************
+**********| Version 2.0.0 - Released 2012-03-26 |**********
+***********************************************************
+
+- added unit tests
+- refactoring of view classes
+- improvement - template snippets are now integrated with the oxid block feature (OXID 4.5.1 and above)
+
+Many under the hood improvements.
+
+***********************************************************
+**********| Version 1.3.0 RC1 - Released 2012-02-01 |**********
+***********************************************************
+
+- fixed [RPOX-12] - telephone number or birthdate only saved if both telephone number and birthdate is given
+- fixed [RPOX-13] - order id not shown correctly in log view
+- fixed [RPOX-17] - two digit birthdate converts to wrong date (56 to 2056)
+
+- improvement [RPOX-2] - Error Message if request to RatePAY server timed out
+
+Many under the hood improvements.
+
+***********************************************************
+**********| Version 1.2.1 - Released 2012-01-04 |**********
+***********************************************************
+
+- fixed (0000467) - send oxordernr of order as 'order-id' not oxid
+
+***********************************************************
+**********| Version 1.2.0 - Released 2011-12-27 |**********
+***********************************************************
+
+- fixed (0000448) - two times delivery costs on merchant voucher [backend]
+- fixed (0000447) - canceled article still visible in pdf invoice [backend]
+- fixed (0000446) - items not shown in retoure view [backend]
+- fixed (0000445) - RatePAY backend view did not update on changes (cancellation, shipment etc.) [backend]
+- fixed (0000443) - voucher had always label "RatePAY-Gutschein" [backend]
+- fixed (0000442) - voucher not shown in history after full cancellation [backend]
+- fixed (0000441) - voucher not shown after full cancellation [backend]
+- fixed (0000440) - vouchers and delivery costs not shipped [backend]
+- fixed (0000439) - delivery costs added on full cancellation [backend]
+- fixed (0000438) - voucher can be added although it exceeds total price [backend]
+- fixed (0000436) - full cancellation does not work [backend]
+- fixed (0000435) - full shipment does not work [backend]
+- fixed (0000434) - vat on vouchers [backend]
+- fixed (0000431) - install.sql: error on first run [install]
+- fixed double md5 hashing
+- fixed installment on logging of thankyou
+
+- removed deprecated agb check
+- removed custom order tpls
+- removed thankyou.tpl
+
+- changed payment method setting: 'purchase price' to default to from: 200 to 2000 for Rate and from: 20 to 1500 for Rechnung
+- changed (0000449) "RatePAY-Gutschein" to "Anbieter Gutschrift"
+- changed more meaningful error message if user forgets to insert vat-id or company name (applies only if company name or vat-id is set, and the other is forgotten)
+
+***********************************************************
+**********| Version 1.1.2 - Released 2011-12-02 |**********
+***********************************************************
+
+- changed getModulePath() to relative Paths
+- fixed URL for RatePAY Testing Server
+- fixed Logging for failed INIT,
+- fixed Wiederrufsrecht URL on Basic Theme
+- removed md5 Hash of Security Code
+
+***********************************************************
+**********| Version 1.1.1 - Released 2011-12-01 |**********
+***********************************************************
+
+- changed Logging
+- added Loggingcolumns
+
+***********************************************************
+**********| Version 1.1.0 - Released 2011-11-23 |**********
+***********************************************************
+
+- RatePAY Rechnung and RatePAY Rate now as one module
+- new RatePAY Rate Calculator
+- changed RatePAY Rate Invoice PDF.
