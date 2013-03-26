@@ -31,24 +31,6 @@ class pi_ratepay_order extends pi_ratepay_order_parent
     private $_paymentId = null;
 
     /**
-     * {@inheritdoc}
-     *
-     * Additonally checks if payment Method is RatePAY Rechnung or Rate and disables AGB confirmation if true.
-     *
-     * @see order::render()
-     * @return string
-     */
-    public function render()
-    {
-        $this->_paymentId = $this->getBasket()->getPaymentId();
-        if (in_array($this->_paymentId, pi_ratepay_util_utilities::$_RATEPAY_PAYMENT_METHOD)) {
-            $this->_blConfirmAGB = false;
-        }
-
-        return parent::render();
-    }
-
-    /**
      * Executes Order
      *
      * Tests if the payment method is Rate or Rechnung.
