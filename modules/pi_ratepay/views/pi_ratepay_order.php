@@ -74,6 +74,11 @@ class pi_ratepay_order extends pi_ratepay_order_parent
                 return;
             }
 
+            if (!oxConfig::getParameter( 'ord_agb')) {
+                $this->_blConfirmAGBError = 1;
+                return;
+            }
+
             // for compatibility reasons for a while. will be removed in future
             if (oxConfig::getParameter('ord_custinfo') !== null && !oxConfig::getParameter('ord_custinfo') && $this->isConfirmCustInfoActive()) {
                 $this->_blConfirmCustInfoError = 1;
