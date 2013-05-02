@@ -10,4 +10,4 @@ This Module integrates the RatePay API to your Oxid Shop.
 * Activate the payment means, delivery methods and customer groups
 
 
-If there are any problems feel free to open a <a href="https://github.com/ratepay/oxid-module/issues" title="go to issue dashboard>new issue</a>.
+If there are any problems feel free to open an [new issue](https://github.com/ratepay/oxid-module/issues "go to issue dashboard")
