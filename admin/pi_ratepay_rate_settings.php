@@ -60,6 +60,7 @@ class pi_ratepay_rate_settings extends pi_ratepay_admin_SettingsAbstract
     {
         $sandbox = $this->_isParameterCheckedOn(oxConfig::getParameter('sandbox'));
         $logging = $this->_isParameterCheckedOn(oxConfig::getParameter('logging'));
+        $whitelabel = $this->_isParameterCheckedOn(oxConfig::getParameter('whitelabel'));
         $paymentFirstday = $this->_isParameterCheckedOn(oxConfig::getParameter('paymentfirstday'));
         $saveBankData = $this->_isParameterCheckedOn(oxConfig::getParameter('savebankdata'));
         $activateElv = $this->_isParameterCheckedOn(oxConfig::getParameter('activateelv'));
@@ -80,6 +81,7 @@ class pi_ratepay_rate_settings extends pi_ratepay_admin_SettingsAbstract
             'ratepay_url'             => oxConfig::getParameter('ratepay_url'),
             'sandbox'                 => $sandbox,
             'logging'                 => $logging,
+            'whitelabel'              => $whitelabel,
             'payment_firstday'        => $paymentFirstday,
             'savebankdata'            => $saveBankData,
             'activate_elv'            => $activateElv

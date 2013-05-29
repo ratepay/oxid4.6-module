@@ -58,7 +58,7 @@
                                 <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td class="edittext" width="15%">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_PROFILEID" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_PROFILEID" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" maxlength="255" name="profile_id" value="[{$settings->pi_ratepay_settings__profile_id->rawValue}]">
@@ -66,7 +66,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_SECURITYCODE" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_SECURITYCODE" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" maxlength="255" name="security_code" value="[{$settings->pi_ratepay_settings__security_code->rawValue}]">
@@ -74,7 +74,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_SANDBOX" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_SANDBOX" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             [{ if $settings->pi_ratepay_settings__sandbox->rawValue == 1}]
@@ -86,13 +86,25 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_LOGGING" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_LOGGING" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             [{ if $settings->pi_ratepay_settings__logging->rawValue == 1}]
                                             <input type="checkbox" name="logging" checked='checked' value='on'>
                                             [{else}]
                                             <input type="checkbox" name="logging">
+                                            [{/if}]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="edittext">
+                                            [{ oxmultilang ident="PI_RATEPAY_WHITELABEL" }]:&nbsp;
+                                        </td>
+                                        <td class="edittext">
+                                            [{ if $settings->pi_ratepay_settings__whitelabel->rawValue == 1}]
+                                            <input type="checkbox" name="whitelabel" checked='checked' value='on'>
+                                            [{else}]
+                                            <input type="checkbox" name="whitelabel">
                                             [{/if}]
                                         </td>
                                     </tr>
@@ -114,12 +126,12 @@
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="duedate" value="[{$settings->pi_ratepay_settings__duedate->rawValue}]">
-                                            &nbsp;[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_DUEDATE_DAY" }]
+                                            &nbsp;[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_DUEDATE" }]
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_RATEPAY" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_RATEPAY" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="ratepay_url" value="[{$settings->pi_ratepay_settings__ratepay_url->rawValue}]">
@@ -129,12 +141,12 @@
                             </fieldset>
                             <br/>
                             <br/>
-                            <fieldset title="[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_BANKTITLE" }]" style="padding-left: 5px; padding-right: 5px;">
-                                      <legend>[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_BANKTITLE" }]</legend><br>
+                            <fieldset title="[{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_BANKTITLE" }]" style="padding-left: 5px; padding-right: 5px;">
+                                      <legend>[{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_BANKTITLE" }]</legend><br>
                                 <table cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td class="edittext" width="15%">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_ACCOUNTHOLDER" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_ACCOUNTHOLDER" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="account_holder" value="[{$settings->pi_ratepay_settings__account_holder->rawValue}]">
@@ -142,7 +154,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_BANKNAME" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_BANKNAME" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="bank_name" value="[{$settings->pi_ratepay_settings__bank_name->rawValue}]">
@@ -150,7 +162,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_BANKCODENUMBER" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_BANKCODENUMBER" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="bank_code_number" value="[{$settings->pi_ratepay_settings__bank_code_number->rawValue}]">
@@ -158,7 +170,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_ACCOUNTNUMBER" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_ACCOUNTNUMBER" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="account_number" value="[{$settings->pi_ratepay_settings__account_number->rawValue}]">
@@ -166,7 +178,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_SWIFTBIC" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_SWIFTBIC" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="swift_bic" value="[{$settings->pi_ratepay_settings__swift_bic->rawValue}]">
@@ -174,7 +186,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_IBAN" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_IBAN" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <input type="text" class="editinput" size="50" name="iban" value="[{$settings->pi_ratepay_settings__iban->rawValue}]">
@@ -182,7 +194,7 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext" valign="top">
-                                            [{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_INVOICEFIELD" }]:&nbsp;
+                                            [{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_INVOICEFIELD" }]:&nbsp;
                                         </td>
                                         <td class="edittext">
                                             <textarea class="editinput" cols="140" rows="4"  id="invoice_field" name="invoice_field" onkeyup="check();">[{$settings->pi_ratepay_settings__invoice_field->rawValue}]</textarea>
@@ -192,7 +204,7 @@
                                         <td class="edittext"></td>
                                         <td class="edittext">
                                             <br>
-                                            <input type="submit" class="edittext" name="[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_SAVE" }]" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{ oxmultilang ident="PI_RATEPAY_RECHNUNG_SETTINGS_SAVE" }]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"><br>
+                                            <input type="submit" class="edittext" name="[{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_SAVE" }]" value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{ oxmultilang ident="PI_RATEPAY_ELV_SETTINGS_SAVE" }]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"><br>
                                         </td>
                                     </tr>
                                 </table>

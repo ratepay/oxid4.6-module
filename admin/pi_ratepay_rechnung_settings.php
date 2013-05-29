@@ -60,6 +60,7 @@ class pi_ratepay_rechnung_settings extends pi_ratepay_admin_SettingsAbstract
     {
         $sandbox = $this->_isParameterCheckedOn(oxConfig::getParameter('sandbox'));
         $logging = $this->_isParameterCheckedOn(oxConfig::getParameter('logging'));
+        $whitelabel = $this->_isParameterCheckedOn(oxConfig::getParameter('whitelabel'));
 
         $settings = oxNew('pi_ratepay_Settings');
         $settings->load($this->getEditObjectId());
@@ -77,6 +78,7 @@ class pi_ratepay_rechnung_settings extends pi_ratepay_admin_SettingsAbstract
             'ratepay_url'             => oxConfig::getParameter('ratepay_url'),
             'sandbox'                 => $sandbox,
             'logging'                 => $logging,
+            'whitelabel'              => $whitelabel,
             'duedate'                 => oxConfig::getParameter('duedate')
         ));
 

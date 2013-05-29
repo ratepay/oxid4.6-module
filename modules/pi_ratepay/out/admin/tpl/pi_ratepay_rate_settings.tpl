@@ -98,6 +98,18 @@
                                     </tr>
                                     <tr>
                                         <td class="edittext">
+                                            [{ oxmultilang ident="PI_RATEPAY_WHITELABEL" }]:&nbsp;
+                                        </td>
+                                        <td class="edittext">
+                                            [{ if $settings->pi_ratepay_settings__whitelabel->rawValue == 1}]
+                                            <input type="checkbox" name="whitelabel" checked='checked' value='on'>
+                                            [{else}]
+                                            <input type="checkbox" name="whitelabel">
+                                            [{/if}]
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="edittext">
                                             [{ oxmultilang ident="PI_RATEPAY_RATE_PAYMENTFIRSTDAY" }]:&nbsp;
                                         </td>
                                         <td class="edittext">

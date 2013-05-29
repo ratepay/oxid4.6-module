@@ -29,6 +29,7 @@ $piErrorBirthdayDigits = 'Geben Sie bitte Ihr Geburtsjahr vierstellig ein. (z.B.
 
 $aLang = array(
     'charset'                                       => 'UTF-8',
+    'PI_RATEPAY_ELV_VIEW_WHITELABEL_TEXT'           => 'Lastschrift',
     'PI_RATEPAY_ELV_VIEW_INFORMATION_TEXT_1'        => ' stellt mit der Unterst&uuml;tzung von RatePAY die M&ouml;glichkeit der RatePAY-Lastschrift bereit. Sie nehmen damit einen Kauf auf Lastschrift vor. Die Lastschrift ist innerhalb von ',
     'PI_RATEPAY_ELV_VIEW_INFORMATION_TEXT_1_PART_2' => ' Tagen nach Rechnungsdatum zur Zahlung f&auml;llig.',
     'PI_RATEPAY_ELV_VIEW_INFORMATION_TEXT_2'        => 'RatePAY-Lastschrift ist <b>ab einem Einkaufswert von ',

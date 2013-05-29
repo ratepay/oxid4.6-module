@@ -96,7 +96,6 @@ class pi_ratepay_payment extends pi_ratepay_payment_parent
     {
         $settings = oxNew('pi_ratepay_settings');
 
-
         foreach (pi_ratepay_util_utilities::$_RATEPAY_PAYMENT_METHOD as $paymentMethod) {
 
             if ($this->_firstTime) {
@@ -144,6 +143,12 @@ class pi_ratepay_payment extends pi_ratepay_payment_parent
                 $this->addTplParam($paymentMethod
                     . '_duedays',
                     $settings->pi_ratepay_settings__duedate->rawValue);
+
+                //$whitelabel = ($settings->pi_ratepay_settings__whitelabel->rawValue) ? true : false;
+                if($settings->pi_ratepay_settings__whitelabel->rawValue == '1') {
+                    $this->addTplParam($paymentMethod
+                    . '_whitelabel', true);
+                }
 
                 if ($paymentMethod === 'pi_ratepay_rate') {
                     $this->addTplParam(

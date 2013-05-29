@@ -58,6 +58,7 @@ $aLang = array(
     'PI_RATEPAY_ELV_SETTINGS_POLICY'         => 'H&auml;ndler-Datenschutzerkl&auml;rung URL',
     'PI_RATEPAY_ELV_SETTINGS_WIDER'          => 'Widerrufsrecht URL',
     'PI_RATEPAY_ELV_LOGGING'                 => 'Logging',
+    'PI_RATEPAY_ELV_WHITELABEL'              => 'Whitelabel',
     'PI_RATEPAY_ELV_ELV'                     => 'RatePAY Lastschrift',
     'PI_RATEPAY_ELV_PDF_PAYUNTIL_1'          => "Der fällige Rechnungsbetrag wird von Ihrem Konto abgebucht, welches Sie während des Bestellprozesses ",
     'PI_RATEPAY_ELV_PDF_PAYUNTIL_2'          => "angegeben haben.",

@@ -29,6 +29,7 @@ $piErrorBirthdayDigits = 'Geben Sie bitte Ihr Geburtsjahr vierstellig ein. (z.B.
 
 $aLang = array(
     'charset'                                       => 'UTF-8',
+    'PI_RATEPAY_RATE_VIEW_WHITELABEL_TEXT'          => 'Ratenzahlung',
     'PI_RATEPAY_RATE_VIEW_INFORMATION_TEXT_1'       => 'Mit RatePAY-Ratenzahlung w&auml;hlen Sie eine Bezahlung in Raten.',
     'PI_RATEPAY_RATE_VIEW_INFORMATION_TEXT_2'       => 'RatePAY-Ratenzahlung kann <b>ab einem Einkaufswert von ',
     'PI_RATEPAY_RATE_VIEW_INFORMATION_TEXT_3'       => ' &#8364;</b> und <b>bis zu einem Einkaufswert von ',
