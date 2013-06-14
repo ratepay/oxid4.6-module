@@ -79,6 +79,7 @@ $aLang = array(
     'PI_RATEPAY_ERRORVOUCHER'                  => "Gutschrift wurde nicht erfolgreich ausgef&uuml;hrt",
     'PI_RATEPAY_ERRORTYPING'                   => "Falsche Eingabe. Eingabe wurde zur&uuml;ckgesetzt. Sie d&uuml;rfen nur Zahlen eintragen, die den vorausgef&uuml;llten Wert nicht &uuml;berschreiten.",
     'PI_RATEPAY_ADMIN_MENU_CONFIGURATION'      => "Ratekonfiguration",
+    'PI_RATEPAY_ADMIN_MENU_SETTINGS'           => "H&auml;ndlerkonfiguration", 
     'PI_RATEPAY_RECHNUNG_SETTINGS_DUEDATE'     => "F&auml;llig nach",
     'PI_RATEPAY_RECHNUNG_SETTINGS_DUEDATE_DAY' => "Tagen",
     'PI_RATEPAY_RATE_PAYMENTFIRSTDAY'          => "Abweichende F&auml;lligkeit für Kunden aktivieren",

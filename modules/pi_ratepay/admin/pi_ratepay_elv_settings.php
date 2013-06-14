@@ -84,8 +84,6 @@ class pi_ratepay_elv_Settings extends pi_ratepay_admin_SettingsAbstract
             'duedate'                 => oxConfig::getParameter('duedate')
         ));
 
-        die(print_r($settings));
-
         $settings->save();
     }
 
