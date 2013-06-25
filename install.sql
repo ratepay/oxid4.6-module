@@ -114,4 +114,4 @@ INSERT INTO `oxvoucherseries` (`OXID`, `OXSHOPID`, `OXSERIENR`, `OXSERIEDESCRIPT
 
 INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'invoice');
 INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'elv');
-INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`, `invoice_field`) VALUES ('', '', 'installment', 'Bei Fragen zur Rechnung wenden Sie sich bitte an \\r\\nTel 012/34567 ● Fax 012/345678 ● testshop@ratepay.de');
+INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'installment');
