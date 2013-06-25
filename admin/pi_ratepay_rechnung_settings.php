@@ -68,18 +68,10 @@ class pi_ratepay_rechnung_settings extends pi_ratepay_admin_SettingsAbstract
         $settings->assign(array(
             'profile_id'              => oxConfig::getParameter('profile_id'),
             'security_code'           => oxConfig::getParameter('security_code'),
-            'account_holder'          => oxConfig::getParameter('account_holder'),
-            'bank_name'               => oxConfig::getParameter('bank_name'),
-            'bank_code_number'        => oxConfig::getParameter('bank_code_number'),
-            'account_number'          => oxConfig::getParameter('account_number'),
-            'swift_bic'               => oxConfig::getParameter('swift_bic'),
-            'iban'                    => oxConfig::getParameter('iban'),
-            'invoice_field'           => oxConfig::getParameter('invoice_field'),
-            'ratepay_url'             => oxConfig::getParameter('ratepay_url'),
             'sandbox'                 => $sandbox,
             'logging'                 => $logging,
             'whitelabel'              => $whitelabel,
-            'duedate'                 => oxConfig::getParameter('duedate')
+            'duedate'                 => oxConfig::getParameter('duedate')            
         ));
 
         $settings->save();
