@@ -58,33 +58,22 @@ class pi_ratepay_rate_settings extends pi_ratepay_admin_SettingsAbstract
 
     function saveRatepaySettings()
     {
-        $sandbox = $this->_isParameterCheckedOn(oxConfig::getParameter('sandbox'));
-        $logging = $this->_isParameterCheckedOn(oxConfig::getParameter('logging'));
-        $whitelabel = $this->_isParameterCheckedOn(oxConfig::getParameter('whitelabel'));
-        $paymentFirstday = $this->_isParameterCheckedOn(oxConfig::getParameter('paymentfirstday'));
+        $sandbox      = $this->_isParameterCheckedOn(oxConfig::getParameter('sandbox'));
+        $logging      = $this->_isParameterCheckedOn(oxConfig::getParameter('logging'));
+        $whitelabel   = $this->_isParameterCheckedOn(oxConfig::getParameter('whitelabel'));
         $saveBankData = $this->_isParameterCheckedOn(oxConfig::getParameter('savebankdata'));
-        $activateElv = $this->_isParameterCheckedOn(oxConfig::getParameter('activateelv'));
+        $activateElv  = $this->_isParameterCheckedOn(oxConfig::getParameter('activateelv'));
 
         $settings = oxNew('pi_ratepay_Settings');
         $settings->load($this->getEditObjectId());
         $settings->assign(array(
             'profile_id'              => oxConfig::getParameter('profile_id'),
             'security_code'           => oxConfig::getParameter('security_code'),
-            'account_holder'          => oxConfig::getParameter('account_holder'),
-            'bank_name'               => oxConfig::getParameter('bank_name'),
-            'bank_code_number'        => oxConfig::getParameter('bank_code_number'),
-            'account_number'          => oxConfig::getParameter('account_number'),
-            'swift_bic'               => oxConfig::getParameter('swift_bic'),
-            'iban'                    => oxConfig::getParameter('iban'),
-            'debt_holder'             => oxConfig::getParameter('debt_holder'),
-            'invoice_field'           => oxConfig::getParameter('invoice_field'),
-            'ratepay_url'             => oxConfig::getParameter('ratepay_url'),
             'sandbox'                 => $sandbox,
             'logging'                 => $logging,
             'whitelabel'              => $whitelabel,
-            'payment_firstday'        => $paymentFirstday,
             'savebankdata'            => $saveBankData,
-            'activate_elv'            => $activateElv
+            'activate_elv'            => $activateElv            
         ));
 
         $settings->save();

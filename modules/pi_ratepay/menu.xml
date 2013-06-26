@@ -11,6 +11,7 @@
             <SUBMENU id="PI_RATEPAY_RATE_SETTINGS" cl="pi_ratepay_rate_Settings"></SUBMENU>
             <SUBMENU id="PI_RATEPAY_ELV_SETTINGS" cl="pi_ratepay_elv_Settings"></SUBMENU>
             <SUBMENU id="PI_RATEPAY_ADMIN_MENU_CONFIGURATION" cl="pi_ratepay_Configuration"></SUBMENU>
+            <SUBMENU id="PI_RATEPAY_ADMIN_MENU_SETTINGS" cl="pi_ratepay_Profile"></SUBMENU>
             <SUBMENU id="PI_RATEPAY_LOGGING" cl="pi_ratepay_Log"></SUBMENU>
         </MAINMENU>
     </OXMENU>

@@ -2,16 +2,8 @@ CREATE TABLE IF NOT EXISTS `pi_ratepay_settings` (
   `OXID` int(11) NOT NULL AUTO_INCREMENT,
   `PROFILE_ID` varchar(255) DEFAULT NULL,
   `SECURITY_CODE` varchar(255) DEFAULT NULL,
-  `ACCOUNT_HOLDER` varchar(255) DEFAULT '',
-  `BANK_NAME` varchar(255) DEFAULT '',
-  `BANK_CODE_NUMBER` varchar(255) DEFAULT '',
-  `ACCOUNT_NUMBER` varchar(255) DEFAULT '',
-  `SWIFT_BIC` varchar(255) DEFAULT '',
-  `IBAN` varchar(255) DEFAULT '',
-  `debt_holder` varchar(255) DEFAULT '',
-  `INVOICE_FIELD` text,
   `AGB_URL` varchar(255) DEFAULT '',
-  `RATEPAY_URL` varchar(255) DEFAULT '',
+  `RATEPAY_URL` varchar(255) DEFAULT 'http://customers.ratepay.com/dse.html',
   `POLICY_URL` varchar(255) DEFAULT '',
   `RIGHT_OF_REVOCATION_URL` varchar(255) DEFAULT '',
   `SANDBOX` tinyint(1) NOT NULL DEFAULT '1',
@@ -20,8 +12,10 @@ CREATE TABLE IF NOT EXISTS `pi_ratepay_settings` (
   `PAYMENT_FIRSTDAY` tinyint(1) NOT NULL DEFAULT '0',
   `DUEDATE` int(11) NOT NULL DEFAULT '14',
   `SAVEBANKDATA` tinyint(1) NOT NULL DEFAULT '0',
-  `ACTIVATE_ELV` tinyint(1) NOT NULL default '0',
+  `ACTIVATE_ELV` tinyint(1) NOT NULL DEFAULT '0',
   `WHITELABEL` TINYINT( 1 ) NOT NULL DEFAULT '0',
+  `B2B` TINYINT( 1 ) NOT NULL DEFAULT '0',
+  `DELIVERY_ADDRESS` TINYINT( 1 ) NOT NULL DEFAULT '0',  
   PRIMARY KEY (`OXID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
@@ -120,4 +114,4 @@ INSERT INTO `oxvoucherseries` (`OXID`, `OXSHOPID`, `OXSERIENR`, `OXSERIEDESCRIPT
 
 INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'invoice');
 INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'elv');
-INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`, `invoice_field`) VALUES ('', '', 'installment', 'Bei Fragen zur Rechnung wenden Sie sich bitte an \\r\\nTel 012/34567 ● Fax 012/345678 ● testshop@ratepay.de');
+INSERT INTO `pi_ratepay_settings` (`profile_id`, `security_code`, `type`) VALUES ('', '', 'installment');
