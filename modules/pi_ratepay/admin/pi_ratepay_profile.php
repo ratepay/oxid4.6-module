@@ -28,7 +28,7 @@ class pi_ratepay_Profile extends pi_ratepay_admin_SettingsAbstract
 
         $response = $profileRequestResult['response'];
 
-        if ($response) { 
+        if ($response && $response->head->processing->status!="Error") { 
             $this->addTplParam('error', false);
             $this->_setTemplateVariables($response);
         } else {
