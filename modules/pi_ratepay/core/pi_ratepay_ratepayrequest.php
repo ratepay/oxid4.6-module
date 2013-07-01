@@ -460,14 +460,26 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
             $item->addAttribute('tax', number_format($article->getVatValue(), 2, ".", ""));
         }
 
+        /**
+         * add wrapping costs, delivery costs, etc… if null add 0,00 articles
+         **/
+
         $basket = $this->_getDataProvider()->getSession()->getBasket();
-        if ($basket->getNettoSum() != 0) {
+
+        if ($basket->getFWrappingCosts() != 0) {
             $item = $items->addChild('item', 'Wrapping Cost');
             $item->addAttribute('article-number', 'oxwrapping');
             $item->addAttribute('quantity', 1);
-            $item->addAttribute('unit-price', number_format($basket->getNettoSum(), 2, ".", ""));
-            $item->addAttribute('total-price', number_format($basket->getNettoSum(), 2, ".", ""));
-            $item->addAttribute('tax', number_format(($basket->getBruttoSum() - $basket->getNettoSum()), 2, ".", ""));
+            $item->addAttribute('unit-price', number_format($basket->getWrappCostNet(), 2, ".", ""));
+            $item->addAttribute('total-price', number_format($basket->getWrappCostNet(), 2, ".", ""));
+            $item->addAttribute('tax', number_format($basket->getWrappCostNet(), 2, ".", ""));
+        } else {
+            $item = $items->addChild('item', 'Wrapping Cost');
+            $item->addAttribute('article-number', 'oxwrapping');
+            $item->addAttribute('quantity', 1);
+            $item->addAttribute('unit-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('total-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('tax', number_format(0, 2, ".", ""));
         }
 
         if ($basket->getDelCostNet() != 0) {
@@ -477,6 +489,13 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
             $item->addAttribute('unit-price', number_format($basket->getDelCostNet(), 2, ".", ""));
             $item->addAttribute('total-price', number_format($basket->getDelCostNet(), 2, ".", ""));
             $item->addAttribute('tax', number_format($basket->getDelCostVat(), 2, ".", ""));
+        } else {
+            $item = $items->addChild('item', 'Delivery Cost');
+            $item->addAttribute('article-number', 'oxdelivery');
+            $item->addAttribute('quantity', 1);
+            $item->addAttribute('unit-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('total-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('tax', number_format(0, 2, ".", ""));
         }
 
         if ($basket->getPayCostNet() != 0) {
@@ -486,6 +505,13 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
             $item->addAttribute('unit-price', number_format($basket->getPayCostNet(), 2, ".", ""));
             $item->addAttribute('total-price', number_format($basket->getPayCostNet(), 2, ".", ""));
             $item->addAttribute('tax', number_format($basket->getPayCostVat(), 2, ".", ""));
+        } else {
+            $item = $items->addChild('item', 'Payment Cost');
+            $item->addAttribute('article-number', 'oxpayment');
+            $item->addAttribute('quantity', 1);
+            $item->addAttribute('unit-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('total-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('tax', number_format(0, 2, ".", ""));
         }
 
         if ($basket->getTsProtectionNet() != 0) {
@@ -495,6 +521,13 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
             $item->addAttribute('unit-price', number_format($basket->getTsProtectionNet(), 2, ".", ""));
             $item->addAttribute('total-price', number_format($basket->getTsProtectionNet(), 2, ".", ""));
             $item->addAttribute('tax', number_format($basket->getTsProtectionVat(), 2, ".", ""));
+        } else {
+            $item = $items->addChild('item', 'TS Protection Cost');
+            $item->addAttribute('article-number', 'oxtsprotection');
+            $item->addAttribute('quantity', 1);
+            $item->addAttribute('unit-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('total-price', number_format(0, 2, ".", ""));
+            $item->addAttribute('tax', number_format(0, 2, ".", ""));
         }
 
         if (count($basket->getVouchers())) {
@@ -507,8 +540,7 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
                 $item->addAttribute('tax', number_format($voucher->getVatValue(), 2, ".", ""));
             }
         }
-$a=$basket->getTotalDiscount();
-$a;
+
         if ($basket->getTotalDiscount()->getBruttoPrice() > 0) {
             $item = $items->addChild('item', "Discount");
             $item->addAttribute('article-number', "Discount");
