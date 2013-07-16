@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS `pi_ratepay_settings` (
   `PROFILE_ID` varchar(255) DEFAULT NULL,
   `SECURITY_CODE` varchar(255) DEFAULT NULL,
   `AGB_URL` varchar(255) DEFAULT '',
-  `RATEPAY_URL` varchar(255) DEFAULT 'http://customers.ratepay.com/dse.html',
+  `RATEPAY_URL` varchar(255) DEFAULT 'http://www.ratepay.com/zusaetzliche-geschaeftsbedingungen-und-datenschutzhinweis',
   `POLICY_URL` varchar(255) DEFAULT '',
   `RIGHT_OF_REVOCATION_URL` varchar(255) DEFAULT '',
   `SANDBOX` tinyint(1) NOT NULL DEFAULT '1',
