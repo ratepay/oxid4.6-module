@@ -29,7 +29,7 @@ $aModule = array(
     ),
     'thumbnail'    => 'picture.png',
     'lang'         => 'en',
-    'version'      => '2.5.0.4',
+    'version'      => '2.5.0.5',
     'author'       => 'PayIntelligent GmbH',
     'url'          => 'http://www.payintelligent.de/',
     'extend'       => array(

@@ -532,12 +532,12 @@ class pi_ratepay_RatepayRequest extends oxSuperCfg
 
         if (count($basket->getVouchers())) {
             foreach ($basket->getVouchers() as $voucher) {
-                $item = $items->addCDataChild('item', $voucher->getTitle(), $this->_utfMode);
-                $item->addAttribute('article-number', $voucher->getArticleNumber());
-                $item->addAttribute('quantity', $voucher->getQuantity());
-                $item->addAttribute('unit-price', "-" . number_format($voucher->getUnitPrice(), 2, ".", ""));
-                $item->addAttribute('total-price', "-" . number_format($voucher->getPrice(), 2, ".", ""));
-                $item->addAttribute('tax', number_format($voucher->getVatValue(), 2, ".", ""));
+                $item = $items->addCDataChild('item', $voucher->sVoucherNr, $this->_utfMode);
+                $item->addAttribute('article-number', $voucher->sVoucherNr);
+                $item->addAttribute('quantity', 1);
+                $item->addAttribute('unit-price', "" . number_format($voucher->dVoucherdiscount, 2, ".", ""));
+                $item->addAttribute('total-price', "" . number_format($voucher->dVoucherdiscount, 2, ".", ""));
+                $item->addAttribute('tax', number_format("0", 2, ".", ""));
             }
         }
 
