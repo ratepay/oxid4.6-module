@@ -74,8 +74,13 @@ class pi_ratepay_order extends pi_ratepay_order_parent
                 return;
             }
 
+            if (!oxConfig::getParameter( 'ord_agb')) {
+                $this->_blConfirmAGBError = 1;
+                return;
+            }
+
             // for compatibility reasons for a while. will be removed in future
-            if (oxConfig::getRequestParameter('ord_custinfo') !== null && !oxConfig::getRequestParameter('ord_custinfo') && $this->isConfirmCustInfoActive()) {
+            if (oxConfig::getParameter('ord_custinfo') !== null && !oxConfig::getParameter('ord_custinfo') && $this->isConfirmCustInfoActive()) {
                 $this->_blConfirmCustInfoError = 1;
                 return;
             }
@@ -93,7 +98,7 @@ class pi_ratepay_order extends pi_ratepay_order_parent
                         $this->getSession()->setVar($this->_paymentId . '_error_id', $paymentMethodIds[$this->_paymentId]['denied']);
                         $this->getSession()->setVar('pi_ratepay_denied', 'denied');
                     }
-                    oxRegistry::getUtils()->redirect($this->getConfig()->getSslShopUrl() . 'index.php?cl=payment', false);
+                    oxUtils::getInstance()->redirect($this->getConfig()->getSslShopUrl() . 'index.php?cl=payment', false);
                 }
 
                 try {
@@ -117,13 +122,12 @@ class pi_ratepay_order extends pi_ratepay_order_parent
                     // proceeding to next view
                     return $this->_getNextStep($iSuccess);
                 } catch (oxOutOfStockException $oEx) {
-                    oxRegistry::get("oxUtilsView")->addErrorToDisplay($oEx, false, true, 'basket');
+                    oxUtilsView::getInstance()->addErrorToDisplay($oEx, false, true, 'basket');
                 } catch (oxNoArticleException $oEx) {
-                    oxRegistry::get("oxUtilsView")->addErrorToDisplay($oEx);
+                    oxUtilsView::getInstance()->addErrorToDisplay($oEx);
                 } catch (oxArticleInputException $oEx) {
-                    oxRegistry::get("oxUtilsView")->addErrorToDisplay($oEx);
+                    oxUtilsView::getInstance()->addErrorToDisplay($oEx);
                 }
-
             }
         } else {
             return parent::execute();
@@ -155,7 +159,6 @@ class pi_ratepay_order extends pi_ratepay_order_parent
     private function _ratepayRequest()
     {
         $ratepayRequest = $this->_getRatepayRequest($this->_paymentId, $this->getBasket());
-
 
         $paymentMethod = pi_ratepay_util_utilities::getPaymentMethod($this->_paymentId);
 
@@ -285,8 +288,8 @@ class pi_ratepay_order extends pi_ratepay_order_parent
      */
     private function _checkBasketCosts($id, $articleNumber)
     {
-        $basket = $this->getSession()->getBasket();
-        if ($basket->getBruttoSum() > 0) {
+        $basketCosts = $this->getBasket()->getCosts();
+        if ($basketCosts[$articleNumber]->getBruttoPrice() > 0) {
             $this->_saveToRatepayOrderDetails($id, $articleNumber, 1);
         }
     }
@@ -323,4 +326,3 @@ class pi_ratepay_order extends pi_ratepay_order_parent
     }
 
 }
-

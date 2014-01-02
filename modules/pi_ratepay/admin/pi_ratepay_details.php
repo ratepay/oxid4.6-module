@@ -673,20 +673,20 @@ class pi_ratepay_Details extends oxAdminDetails
             if ($subtype == "credit") {
                 $quant = $article['ordered'] - $article['cancelled'] - $article['returned'];
             } else {
-                $quant = $article['ordered'] - $article['cancelled'] - $article['returned'] - oxConfig::getParameter($article['arthash']);
+                $quant = $article['ordered'] - $article['cancelled'] - $article['returned'] - (int) oxConfig::getParameter($article['arthash']);
             }
 
             if ($quant > 0) {
-                $title = '';
-                $title = $this->removeSpecialChars(html_entity_decode($article['oxtitle']));
+                $title = $this->removeSpecialChars(html_entity_decode($article['title']));
                 $item = $items->addCDataChild('item', $title, $this->_isUtfMode());
                 $item->addAttribute('article-number', $article['artnum']);
                 $item->addAttribute('quantity', $quant);
-                $item->addAttribute('unit-price', number_format($article['unitPriceNetto'], 2, ".", ""));
-                $item->addAttribute('total-price', number_format($article['unitPriceNetto'] * $quant, 2, ".", ""));
-                $item->addAttribute('tax', number_format(($article['unitprice'] * $quant) - ($article['unitPriceNetto'] * $quant), 2, ".", ""));
+                $item->addAttribute('unit-price', $this->_convertNumber($article['unitPriceNetto']));
+                $item->addAttribute('total-price', $this->_convertNumber($article['unitPriceNetto']) * $quant);
+                $item->addAttribute('tax', ($this->_convertNumber($article['unitprice']) - $this->_convertNumber($article['unitPriceNetto'])) * $quant);
             }
         }
+
         if ($subtype == "credit") {
             $nr = oxDb::getDb()->getOne("SELECT count( * ) AS nr FROM `oxvouchers` WHERE oxvouchernr LIKE 'pi-Merchant-Voucher-%'");
             $vouchertitel = "pi-Merchant-Voucher-" . $nr;
@@ -755,14 +755,15 @@ class pi_ratepay_Details extends oxAdminDetails
         foreach ($articles as $article) {
             if (oxConfig::getParameter($article['arthash']) > 0) {
 
-                $title = $this->removeSpecialChars(html_entity_decode($article['oxtitle']));
+                $title = $this->removeSpecialChars(html_entity_decode($article['title']));
                 $item = $items->addCDataChild('item', $title, $this->_isUtfMode());
+                $quant = (int) oxConfig::getParameter($article['arthash']);
 
                 $item->addAttribute('article-number', $article['artnum']);
-                $item->addAttribute('quantity', oxConfig::getParameter($article['arthash']));
-                $item->addAttribute('unit-price', number_format($article['unitPriceNetto'], 2, ".", ""));
-                $item->addAttribute('total-price', number_format($article['unitPriceNetto'] * oxConfig::getParameter($article['arthash']), 2, ".", ""));
-                $item->addAttribute('tax', number_format(($article['unitprice'] * oxConfig::getParameter($article['arthash'])) - ($article['unitPriceNetto'] * oxConfig::getParameter($article['arthash'])), 2, ".", ""));
+                $item->addAttribute('quantity', $quant);
+                $item->addAttribute('unit-price', $this->_convertNumber($article['unitPriceNetto']));
+                $item->addAttribute('total-price', $this->_convertNumber($article['unitPriceNetto']) * $quant);
+                $item->addAttribute('tax', ($this->_convertNumber($article['unitprice']) - $this->_convertNumber($article['unitPriceNetto'])) * $quant);
             }
         }
     }
@@ -1089,4 +1090,12 @@ class pi_ratepay_Details extends oxAdminDetails
         return $settings;
     }
 
+    /**
+     * Convert number with thousands separator to calculable float numbers
+     * @return float
+     */
+    private function _convertNumber($number)
+    {
+        return (float) str_replace(',', '', $number);
+    }
 }
